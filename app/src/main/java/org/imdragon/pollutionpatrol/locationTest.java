@@ -21,6 +21,7 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
 public class locationTest extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
@@ -55,6 +56,12 @@ public class locationTest extends FragmentActivity implements OnMapReadyCallback
         //set map fragment as a GoogleMap object to use for later
         myMap = mapFragment.getMap();
 
+
+                myMap.addMarker(new MarkerOptions().position(new LatLng(34.4313533,-119.8901207)).snippet("Random Point").title("Woohoo"));
+        myMap.addMarker(new MarkerOptions().position(new LatLng(34.420557, -119.896901)).snippet("Random Point").title("Woohoo"));
+        myMap.addMarker(new MarkerOptions().position(new LatLng(34.420557, -119.896901)).snippet("Random Point").title("Woohoo"));
+        myMap.addMarker(new MarkerOptions().position(new LatLng(34.420243, -119.894787)).snippet("Random Point").title("Woohoo"));
+        myMap.addMarker(new MarkerOptions().position(new LatLng(34.458619, -120.021280)).snippet("Random Point").title("Woohoo"));
 
         //whenever the camera changes, cameraBounds will be updated
 //        myMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
@@ -116,6 +123,7 @@ public class locationTest extends FragmentActivity implements OnMapReadyCallback
         myMap.setMyLocationEnabled(true);}
 
 
+
     // Location Awareness Below
 
     protected synchronized void buildGoogleApiClient() {
@@ -132,21 +140,23 @@ public class locationTest extends FragmentActivity implements OnMapReadyCallback
 
         if (location == null) {
             //do something here
-            LocationServices.FusedLocationApi.requestLocationUpdates(myGoogleApiClient, myLocationRequest, this);
+            startLocationUpdates();
+//            LocationServices.FusedLocationApi.requestLocationUpdates(myGoogleApiClient, myLocationRequest, this);
         } else {
             handleNewLocation(location);
             baseLocation = location;
             setUpMap();
         }
     }
+    protected void startLocationUpdates() {
+        LocationServices.FusedLocationApi.requestLocationUpdates(
+                myGoogleApiClient, myLocationRequest, this);
+    }
 
     private void handleNewLocation(Location location) {
         LatLng here = new LatLng(location.getLatitude(), location.getLongitude());
-        TextView mLatitudeText = (TextView) findViewById(R.id.latitude);
-        TextView mLongitudeText = (TextView) findViewById(R.id.longitude);
-        mLatitudeText.setText(String.valueOf(location.getLatitude()));
-        mLongitudeText.setText(String.valueOf(location.getLongitude()));
-//        myMap.addMarker(new MarkerOptions().position(here).title(String.valueOf(i++)));
+
+        myMap.addMarker(new MarkerOptions().position(here).title(String.valueOf(i++)));
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(here)
                 .zoom(17) // Sets the zoom
@@ -180,7 +190,11 @@ public class locationTest extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onLocationChanged(Location location) {
+        TextView mLatitudeText = (TextView) findViewById(R.id.latitude);
+        mLatitudeText.setText((String.valueOf(location.getLatitude())) + (String.valueOf(location.getLongitude())));
+
         handleNewLocation(location);
+
 
     }
 

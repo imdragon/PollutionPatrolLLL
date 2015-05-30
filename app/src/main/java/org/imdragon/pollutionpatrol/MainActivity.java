@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void makeReport(View v){
-    startActivity(new Intent(this, reportActivity.class));
+    startActivity(new Intent(this, MapsActivity.class));
     }
 
     public void adminInterface (View v){

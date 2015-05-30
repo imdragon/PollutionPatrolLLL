@@ -4,31 +4,86 @@
     >
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="455dp" android:id="@+id/map" tools:context=".MapsActivity"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="0dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp" />
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:id="@+id/map"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        />
 
-    <TextView
+    <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/latitude"
+        android:text="@string/oilCheckbox"
+        android:id="@+id/oilCB"
+        android:layout_alignTop="@+id/plasticCB"
+        android:layout_alignRight="@+id/progressLabel"
+        android:layout_alignEnd="@+id/progressLabel" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plasticCheckbox"
+        android:id="@+id/plasticCB"
         android:layout_below="@+id/map"
-        android:layout_toLeftOf="@+id/longitude"
+        android:layout_toLeftOf="@+id/progressLabel"
+        android:layout_toStartOf="@+id/progressLabel" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/styrofoamCheckbox"
+        android:id="@+id/styrofoamCB"
+        android:layout_below="@+id/plasticCB"
+        android:layout_alignLeft="@+id/plasticCB"
+        android:layout_alignStart="@+id/plasticCB" />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/generalCheckbox"
+        android:id="@+id/generalCB"
+        android:layout_below="@+id/oilCB"
+        android:layout_alignLeft="@+id/oilCB"
+        android:layout_alignStart="@+id/oilCB" />
+
+    <SeekBar
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"
+        android:progress="1"
+        android:max="5"
+        android:layout_below="@+id/styrofoamCB"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/longitude"
-        android:layout_below="@+id/map"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/progressValue"
+        android:id="@+id/progressLabel"
+        android:layout_below="@+id/seekBar"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=""
+        android:id="@+id/pValue"
+        android:layout_centerHorizontal="true"
+        android:textIsSelectable="false"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submitButton"
+        android:id="@+id/sbutton"
+        android:onClick="submitbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/plasticCB"
+        android:layout_toEndOf="@+id/plasticCB" />
 
 </RelativeLayout>

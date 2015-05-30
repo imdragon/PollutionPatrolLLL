@@ -7,7 +7,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="report">Report</string>
-    <string name="Admin">Admin</string>
+    <string name="Admin">Map</string>
     <string name="title_activity_report_acitivity">reportAcitivity</string>
 
     <string name="oilCheckbox">Oil</string>
@@ -16,6 +16,7 @@
     <string name="generalCheckbox">General Trash</string>
 
     <string name="progressValue">Pollution intensity: </string>
+    <string name="submitButton">Submit Report!</string>
     <string name="title_activity_location_test">Map</string>
 
 </resources>
