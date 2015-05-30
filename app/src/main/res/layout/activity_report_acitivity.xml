@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="org.imdragon.pollutionpatrol.reportAcitivity"
+   >
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/oilCheckbox"
+        android:id="@+id/oilCB"
+        android:layout_below="@+id/styrofoamCB"
+        android:layout_alignLeft="@+id/styrofoamCB"
+        android:layout_alignStart="@+id/styrofoamCB" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plasticCheckbox"
+        android:id="@+id/plasticCB"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/generalCB"
+        android:layout_alignStart="@+id/generalCB" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/styrofoamCheckbox"
+        android:id="@+id/styrofoamCB"
+        android:layout_below="@+id/generalCB"
+        android:layout_alignLeft="@+id/generalCB"
+        android:layout_alignStart="@+id/generalCB" />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/generalCheckbox"
+        android:id="@+id/generalCB"
+        android:layout_below="@+id/plasticCB"
+        android:layout_centerHorizontal="true" />
+
+    <SeekBar
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"
+        android:progress="1"
+        android:max="5"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/progressValue"
+        android:id="@+id/progressLabel"
+        android:layout_below="@+id/seekBar"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=""
+        android:id="@+id/pValue"
+        android:layout_below="@+id/progressLabel"
+        android:layout_centerHorizontal="true"
+        android:textIsSelectable="false"
+        android:textSize="25sp" />
+
+</RelativeLayout>
